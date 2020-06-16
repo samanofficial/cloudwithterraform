@@ -8,4 +8,4 @@ This is a task given by Mr. Vimal Daga for practice of Terraform under the train
 ### Page-Source Code showing the image-url is cloudfront
 ![screenshot for webpage Source-Code](screenshot2.png "Source-codes are Boring!!")
 
-This is [View My LinkedIn Article](https://www.linkedin.com/pulse/launching-webapp-aws-cloud-using-terraform-hare-krishna-rai/ "View My LinkedIN Article")
+[View My LinkedIn Article](https://www.linkedin.com/pulse/launching-webapp-aws-cloud-using-terraform-hare-krishna-rai/ "View My LinkedIN Article")
