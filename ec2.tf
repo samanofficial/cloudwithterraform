@@ -83,10 +83,13 @@ resource "aws_volume_attachment" "ebs_attachment" {
   force_detach = true
 }
 
-output "myos_ip" {
+#Note: We need the IP of the instance to be available after launch, we can't use it before and remembering the fact
+#that terraform runs the code in non-sequential format
+
+output "my_instance_ip" {
   value = aws_instance.myin.public_ip
 }
-
+#This IP used later
 
 resource "null_resource" "nulllocal2"  {
   provisioner "local-exec" {
@@ -102,14 +105,14 @@ resource "aws_s3_bucket" "mybucket" {
   tags = {
     Name = "harekrishnabuck"
   }
-}
+} #Intentionally using this method of naming the bucket, it's not the error, In new versions, it will automatically add the suffix in the bucket name, if it exists
 locals {
   s3_origin_id = "s3_origin"
 }
 
 resource "aws_s3_bucket_object" "object"{
   depends_on = [aws_s3_bucket.mybucket,null_resource.image]
-  bucket = aws_s3_bucket.mybucket.bucket
+  bucket = aws_s3_bucket.mybucket.bucket     
   acl = "public-read"
   key = "sample.png"
   source = "C:/Users/harek/Desktop/terraform/sample.png"
